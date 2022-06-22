@@ -26,22 +26,21 @@ RNA seq data splicing using DEXSeq
 ### 6. DEXSeq code  
       
      make a .sh file
+       #!/bin/bash
 
-#!/bin/bash
 
+       mkdir DEXseq
 
-mkdir DEXseq
+       cwd=$(pwd)
+       outpt=$cwd/DEXseq
 
-cwd=$(pwd)
-outpt=$cwd/DEXseq
-
-inpt=$cwd/star_result
-N=15
-while read i
-do
-    ((j=j%N)); ((j++==0)) && wait
-    python /DATA/anshul/covid_lung_analysis/DEXseq_counts/dexseq_count.py -p no -f bam -s no /nfs_master/noorul/noorul2/mouse_data_nafld/gencode.vM27.primary_assembly.annotation.DEXSeq.chr.gff   "$inpt/${i}"Aligned.sortedByCoord.out.bam "$outpt/${i}"DEXseqCounts.txt &
-done < "sample_list1"
+       inpt=$cwd/star_result
+       N=15
+       while read i
+       do
+           ((j=j%N)); ((j++==0)) && wait
+           python /DATA/anshul/covid_lung_analysis/DEXseq_counts/dexseq_count.py -p no -f bam -s no             /nfs_master/noorul/noorul2/mouse_data_nafld/gencode.vM27.primary_assembly.annotation.DEXSeq.chr.gff   "$inpt/${i}"Aligned.sortedByCoord.out.bam    "$outpt/${i}"DEXseqCounts.txt &
+       done < "sample_list1"
 
 
 ### 7. Run .sh file
