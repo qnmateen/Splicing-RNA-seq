@@ -43,4 +43,15 @@ RNA seq data splicing using DEXSeq
        done < "sample_list1"
 
 
+In this code - we need to probide the dexseq python script that we get from the package installed, the flattened gff file which we made from gtf file and aligned bam files that we take from STAR result.
+
+
 ### 7. Run .sh file
+
+The output will be .txt file for each sample
+
+
+### Now the further analysis will be performed on R
+
+So first use R in cluster using -X mode on mac and install ### XQuartz
+
