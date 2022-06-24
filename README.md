@@ -53,5 +53,20 @@ The output will be .txt file for each sample
 
 ### Now the further analysis will be performed on R
 
-So first use R in cluster using -X mode on mac and install ### XQuartz
+So first use R in cluster using -X mode on mac and install XQuartz
+
+module load codes/R-4.1.1
+
+### Codes for R
+
+       if (!require("BiocManager", quietly = TRUE))
+       install.packages("BiocManager")
+
+       BiocManager::install("DEXSeq")
+       
+       library("DEXSeq")
+       
+       
+
+
 
